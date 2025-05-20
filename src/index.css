@@ -1,13 +1,104 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Загальний стиль контейнера */
+.App {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  min-height: 100vh;
+  color: #222;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Заголовок */
+h1 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+/* Пошукове поле */
+.search-input {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: 2px solid #007BFF;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.search-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+}
+
+/* Список карток */
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+/* Картка фільму */
+.movie-card {
+  background: white;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+/* Постер */
+.movie-poster {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* Інформація про фільм */
+.movie-info {
+  padding: 15px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-info h2 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #007BFF;
+}
+
+.movie-info p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Відповідність на мобільних */
+@media (max-width: 600px) {
+  .movie-card {
+    width: 100%;
+  }
+
+  .search-input {
+    max-width: 100%;
+  }
 }
