@@ -1,31 +1,13 @@
-import React, { useState } from 'react';
-import MovieList from './components/MovieList';
-import movies from './data/movies';
-import './index.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Booking from './pages/Booking';
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  
-  const filteredMovies = movies.filter(movie =>
-    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
-    <div className="App">
-      <h1>Now Showing</h1>
-      
-      <input
-       type="text"
-       placeholder="Search movies..."
-       value={searchTerm}
-       onChange={e => setSearchTerm(e.target.value)}
-       className="search-input"
-      />
-
-      
-      <MovieList movies={filteredMovies} />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/booking/:id" element={<Booking />} />
+    </Routes>
   );
 };
 

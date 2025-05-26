@@ -10,33 +10,41 @@
 /* Заголовок */
 h1 {
   margin-bottom: 20px;
-  font-weight: 700;
-  font-size: 2.5rem;
-  color: #333;
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: #0d47a1; /* глибокий синій */
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(13, 71, 161, 0.3);
+  letter-spacing: 1.2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Пошукове поле */
 .search-input {
-  padding: 12px 20px;
+  padding: 14px 24px;
   width: 100%;
   max-width: 400px;
   font-size: 18px;
   border-radius: 30px;
-  border: 2px solid #007BFF;
+  border: 2px solid #1976d2;
   outline: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+  margin: 0 auto 40px auto;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
 }
 
 .search-input::placeholder {
-  color: #aaa;
+  color: #90caf9;
   font-style: italic;
+  letter-spacing: 0.8px;
 }
 
 .search-input:focus {
-  border-color: #0056b3;
-  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+  border-color: #0d47a1;
+  box-shadow: 0 0 16px rgba(13, 71, 161, 0.6);
 }
 
 /* Список карток */
@@ -103,13 +111,17 @@ h1 {
   }
 }
 
+/* Сітка кінозалу */
 .hall {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin: 20px 0;
+  grid-template-columns: repeat(6, 40px); /* 6 місць в ряд */
+  gap: 4px; /* менший відступ для щільності */
+  margin: 20px auto; /* центр по горизонталі */
+  justify-content: center; /* центрування сітки */
+  width: max-content; /* ширина під контент */
 }
 
+/* Окреме місце */
 .seat {
   width: 40px;
   height: 40px;
@@ -119,9 +131,41 @@ h1 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  user-select: none;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.seat:hover {
+  background-color: #1976d2;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(25, 118, 210, 0.7);
 }
 
 .seat.selected {
-  background-color: #2196f3;
+  background-color: #0d47a1;
+  box-shadow: 0 0 12px rgba(13, 71, 161, 0.9);
+}
+
+/* Стиль для надпису обраних місць */
+.selected-seats-label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0d47a1;
+  text-shadow: 1px 1px 3px rgba(13, 71, 161, 0.3);
+  margin: 20px auto 0;
+  user-select: none;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+.selected-seats-label span {
+  font-weight: 400;
+  color: #333;
+  margin-left: 8px;
+  font-style: italic;
 }

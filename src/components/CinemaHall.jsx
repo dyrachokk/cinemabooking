@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 const CinemaHall = () => {
   const totalSeats = 30;
-  const seatsPerRow = 6;
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   const toggleSeat = (seat) => {
@@ -30,7 +29,10 @@ const CinemaHall = () => {
           );
         })}
       </div>
-      <p>Обрані місця: {selectedSeats.join(', ')}</p>
+      <div className="selected-seats-label">
+        Обрані місця:
+        <span>{selectedSeats.length > 0 ? selectedSeats.join(', ') : 'немає'}</span>
+      </div>
     </div>
   );
 };
