@@ -6,7 +6,7 @@ import './index.css';
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Фільтруємо фільми за назвою (незалежно від регістру)
+  
   const filteredMovies = movies.filter(movie =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -15,7 +15,6 @@ const App = () => {
     <div className="App">
       <h1>Now Showing</h1>
       
-      {/* Поле пошуку */}
       <input
        type="text"
        placeholder="Search movies..."
