@@ -1,21 +1,24 @@
-const STORAGE_KEY = 'bookings';
+const STORAGE_KEY = 'movie-bookings';
 
-export const BookingService = {
+const BookingService = {
   getBookings() {
     const data = localStorage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : {};
   },
 
-  getSeatsByMovieId(movieId) {
-    const data = this.getBookings();
-    return data[movieId] || [];
+  getBookedSeats(movieId) {
+    const bookings = this.getBookings();
+    return bookings[movieId] || [];
   },
 
-  saveBooking(movieId, seats, userData) {
-    const data = this.getBookings();
-    data[movieId] = [...(data[movieId] || []), ...seats];
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-
-    console.log('Дані користувача:', userData);
+  saveBooking(movieId, seats) {
+    const bookings = this.getBookings();
+    if (!bookings[movieId]) {
+      bookings[movieId] = [];
+    }
+    bookings[movieId] = Array.from(new Set([...bookings[movieId], ...seats]));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookings));
   }
 };
+
+export default BookingService;
